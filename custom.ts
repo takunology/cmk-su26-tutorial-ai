@@ -40,16 +40,21 @@ namespace craft {
         let out = "";
         for (let i = 0; i < pattern.length; i++) {
             const c = pattern.charAt(i);
-            if (c === "0" || c === ".") {
-                out += "0";
-            } else if (c === " " || c === "\n" || c === "\t") {
+            if (c == "0" || c == ".") {
+                out = out + "0";
+            } else if (c == " " || c == "\n" || c == "\t" || c == "\r") {
                 // skip whitespace
             } else {
-                out += "1";
+                out = out + "1";
             }
         }
-        while (out.length < 9) out += "0";
-        return out.substr(0, 9);
+        while (out.length < 9) {
+            out = out + "0";
+        }
+        if (out.length > 9) {
+            out = out.slice(0, 9);
+        }
+        return out;
     }
 
     function matches(pattern: string, result: CraftResult): boolean {
