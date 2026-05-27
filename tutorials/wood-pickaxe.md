@@ -1,10 +1,10 @@
 ### @flyoutOnly true
 ### @explicitHints true
-### @next tutorials/furnace
+### @next tutorials/mine-cobblestone
 
 # エージェントに木のつるはしを教えよう
 
-エージェントが木のつるはしの作り方を知りたがっています。3x3 の形をプログラムで教えよう。
+板材と木の棒がそろいました。エージェントに木のつるはしの作り方を教えよう。
 
 ## ステップ 1
 

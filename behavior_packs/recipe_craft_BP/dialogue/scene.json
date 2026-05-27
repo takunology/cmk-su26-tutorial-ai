@@ -10,8 +10,88 @@
           {
             "name": "まずは見ててね",
             "commands": [
-              "/scoreboard players set .stage global 1",
-              "/tellraw @initiator {\"rawtext\":[{\"text\":\"木のつるはしを作って、手に持ってエージェントに見せよう。\"}]}"
+              "/function rc_demo_cut_wood"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_teach_cut_wood",
+        "npc_name": "エージェント",
+        "text": "木を集めました！つぎは何をすればいいですか？",
+        "buttons": [
+          {
+            "name": "木を切る作業を教える",
+            "commands": [
+              "/scoreboard players set .stage global 2",
+              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/cut-oak-log"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_learned_cut_wood",
+        "npc_name": "エージェント",
+        "text": "おぼえました！オークの原木を切ってきます",
+        "buttons": [
+          {
+            "name": "お願い！",
+            "commands": [
+              "/function rc_agent_cut_wood"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_next_oak_planks",
+        "npc_name": "エージェント",
+        "text": "オークの原木を集めました！つぎは何をすればいいですか？",
+        "buttons": [
+          {
+            "name": "板材をつくる",
+            "commands": [
+              "/scoreboard players set .stage global 4",
+              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/oak-planks"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_learned_oak_planks",
+        "npc_name": "エージェント",
+        "text": "おぼえました！オークの板材をつくります",
+        "buttons": [
+          {
+            "name": "つくって！",
+            "commands": [
+              "/function rc_agent_make_oak_planks"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_next_sticks",
+        "npc_name": "エージェント",
+        "text": "オークの板材をつくりました！つぎは何をすればいいですか？",
+        "buttons": [
+          {
+            "name": "木の棒をつくる",
+            "commands": [
+              "/scoreboard players set .stage global 6",
+              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/sticks"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_learned_sticks",
+        "npc_name": "エージェント",
+        "text": "おぼえました！木の棒をつくります",
+        "buttons": [
+          {
+            "name": "つくって！",
+            "commands": [
+              "/function rc_agent_make_sticks"
             ]
           }
         ]
@@ -19,12 +99,12 @@
       {
         "scene_tag": "rc_teach_wood",
         "npc_name": "エージェント",
-        "text": "わたしにもおしえてください",
+        "text": "木の棒をつくりました！つぎは何をすればいいですか？",
         "buttons": [
           {
-            "name": "わかった！",
+            "name": "木のつるはしをつくる",
             "commands": [
-              "/scoreboard players set .stage global 3",
+              "/scoreboard players set .stage global 8",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/wood-pickaxe"
             ]
           }
@@ -44,15 +124,28 @@
         ]
       },
       {
-        "scene_tag": "rc_next_furnace",
+        "scene_tag": "rc_next_mine_cobblestone",
         "npc_name": "エージェント",
-        "text": "つぎはなにをしますか",
+        "text": "木のつるはしをつくりました！つぎは何をすればいいですか？",
         "buttons": [
           {
-            "name": "かまどをつくる",
+            "name": "丸石をほる",
             "commands": [
-              "/scoreboard players set .stage global 5",
-              "/tellraw @initiator {\"rawtext\":[{\"text\":\"丸石でかまどを作って、手に持ってエージェントに見せよう。\"}]}"
+              "/scoreboard players set .stage global 10",
+              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/mine-cobblestone"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_learned_mine_cobblestone",
+        "npc_name": "エージェント",
+        "text": "おぼえました！丸石をほってきます",
+        "buttons": [
+          {
+            "name": "お願い！",
+            "commands": [
+              "/function rc_agent_mine_cobblestone"
             ]
           }
         ]
@@ -60,12 +153,12 @@
       {
         "scene_tag": "rc_teach_furnace",
         "npc_name": "エージェント",
-        "text": "かまどのつくりかたおしえてください",
+        "text": "丸石を集めました！つぎは何をすればいいですか？",
         "buttons": [
           {
-            "name": "いいよ！",
+            "name": "かまどをつくる",
             "commands": [
-              "/scoreboard players set .stage global 6",
+              "/scoreboard players set .stage global 12",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/furnace"
             ]
           }
@@ -92,7 +185,7 @@
           {
             "name": "プロンプトを組む",
             "commands": [
-              "/scoreboard players set .stage global 8",
+              "/scoreboard players set .stage global 15",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/agent-prompt"
             ]
           }
@@ -119,7 +212,7 @@
           {
             "name": "おしまい",
             "commands": [
-              "/scoreboard players set .stage global 10"
+              "/scoreboard players set .stage global 17"
             ]
           }
         ]
