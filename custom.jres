@@ -1,0 +1,6 @@
+{
+    "*": {
+        "namespace": "custom",
+        "dataEncoding": "base64"
+    }
+}

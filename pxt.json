@@ -1,0 +1,24 @@
+{
+    "name": "recipe-craft",
+    "version": "0.0.1",
+    "description": "Tutorial extension: classify a 3x3 crafting silhouette and report the result back to the world via scoreboard.",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "custom.ts",
+        "custom.jres",
+        "tutorial-info-cache.json"
+    ],
+    "testFiles": [],
+    "public": true,
+    "targetVersions": {
+        "target": "2.1.24",
+        "targetId": "minecraft"
+    },
+    "supportedTargets": [
+        "minecraft"
+    ],
+    "preferredEditor": "tsprj"
+}
