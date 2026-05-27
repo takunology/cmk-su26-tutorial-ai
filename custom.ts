@@ -8,6 +8,7 @@
  * world-side mcfunction that surfaces feedback.
  */
 
+//% blockId=craftResult
 enum CraftResult {
     //% block="wooden pickaxe"
     Pickaxe = 1,
@@ -21,13 +22,12 @@ enum CraftResult {
     Hoe = 5
 }
 
-//% weight=200 color="#0096FF" icon="" block="Recipe Craft"
+//% weight=200 color="#0096FF" icon="" block="Recipe Craft"
 namespace craft {
 
-    //% blockId=craft_pattern block="pattern $pattern"
-    //% pattern.fieldEditor="sprite"
-    //% pattern.fieldOptions.taggedTemplate="img"
-    //% imageLiteralColumns=3 imageLiteralRows=3 gridLiteral=1
+    //% blockId=craft_pattern block="3x3"
+    //% imageLiteralColumns=3 imageLiteralRows=3
+    //% gridLiteral=1
     //% weight=100
     export function craftPattern(pattern: string): string {
         return normalize(pattern);
@@ -42,10 +42,6 @@ namespace craft {
         player.execute(`function check_result`);
     }
 
-    /**
-     * Reset the answer flag. Use this between attempts so a stale 1
-     * doesn't keep firing "Correct!".
-     */
     //% blockId=craft_reset block="reset answer"
     //% weight=10
     export function resetAnswer(): void {
@@ -68,18 +64,17 @@ namespace craft {
 
     function matches(pattern: string, result: CraftResult): boolean {
         const expected = expectedFor(result);
-        return expected !== null && pattern === expected;
+        return expected.length === 9 && pattern === expected;
     }
 
     function expectedFor(result: CraftResult): string {
-        // 3x3 row-major, "1" = material present, "0" = empty.
         switch (result) {
             case CraftResult.Pickaxe: return "111" + "010" + "010";
             case CraftResult.Sword:   return "010" + "010" + "010";
             case CraftResult.Axe:     return "110" + "110" + "010";
             case CraftResult.Shovel:  return "010" + "010" + "010";
             case CraftResult.Hoe:     return "110" + "010" + "010";
+            default:                  return "";
         }
-        return null;
     }
 }
