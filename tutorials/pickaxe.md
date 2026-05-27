@@ -26,13 +26,21 @@
 わざと違う答えを選ぶと **違うみたい** が出ます。間違えたら ``||craft:答えをリセット||`` を使ってもう一度挑戦できます。
 
 ```ghost
-craft.classifyAs(craft.craftPattern(``), craft.Result.Pickaxe)
+craft.classifyAs(craft.craftPattern(`
+. . .
+. . .
+. . .
+`), craft.Result.Pickaxe)
 craft.resetAnswer()
 ```
 
 ```template
 player.onChat("go", function () {
-    craft.classifyAs(craft.craftPattern(``), craft.Result.Pickaxe)
+    craft.classifyAs(craft.craftPattern(`
+    . . .
+    . . .
+    . . .
+    `), craft.Result.Pickaxe)
 })
 ```
 
