@@ -13,13 +13,29 @@ namespace craft {
     //% weight=86
     export function furnace(): number { return 3; }
 
-    //% blockId=agent_task_wood_pickaxe block="木のつるはしをつくる"
+    //% blockId=agent_task_cut_oak_log block="オークの原木を切る"
     //% weight=84
-    export function makeWoodPickaxe(): number { return 1; }
+    export function cutOakLog(): number { return 1; }
+
+    //% blockId=agent_task_make_oak_planks block="オークの板材をつくる"
+    //% weight=83
+    export function makeOakPlanks(): number { return 2; }
+
+    //% blockId=agent_task_make_sticks block="木の棒をつくる"
+    //% weight=82
+    export function makeSticks(): number { return 3; }
+
+    //% blockId=agent_task_wood_pickaxe block="木のつるはしをつくる"
+    //% weight=81
+    export function makeWoodPickaxe(): number { return 4; }
+
+    //% blockId=agent_task_mine_cobblestone block="丸石をほる"
+    //% weight=80
+    export function mineCobblestone(): number { return 5; }
 
     //% blockId=agent_task_furnace block="かまどをつくる"
-    //% weight=83
-    export function makeFurnace(): number { return 2; }
+    //% weight=79
+    export function makeFurnace(): number { return 6; }
 
     //% blockId=craft_pattern block="3x3"
     //% imageLiteralColumns=3 imageLiteralRows=3 gridLiteral=1
@@ -39,15 +55,23 @@ namespace craft {
         player.execute("function check_result");
     }
 
-    //% blockId=agent_run_prompt block="プロンプトを実行 %first %second"
-    //% first.shadow=agent_task_wood_pickaxe
-    //% second.shadow=agent_task_furnace
-    //% weight=80
-    export function runPrompt(first: number, second: number): void {
-        const ok = (first == 1 && second == 2) ? 1 : 0;
+    //% blockId=agent_run_prompt block="プロンプトを実行 %step1 %step2 %step3 %step4 %step5 %step6"
+    //% step1.shadow=agent_task_cut_oak_log
+    //% step2.shadow=agent_task_make_oak_planks
+    //% step3.shadow=agent_task_make_sticks
+    //% step4.shadow=agent_task_wood_pickaxe
+    //% step5.shadow=agent_task_mine_cobblestone
+    //% step6.shadow=agent_task_furnace
+    //% weight=78
+    export function runPrompt(step1: number, step2: number, step3: number, step4: number, step5: number, step6: number): void {
+        const ok = (step1 == 1 && step2 == 2 && step3 == 3 && step4 == 4 && step5 == 5 && step6 == 6) ? 1 : 0;
         player.execute("scoreboard players set .prompt_ok global " + ok);
-        player.execute("scoreboard players set .prompt1 global " + first);
-        player.execute("scoreboard players set .prompt2 global " + second);
+        player.execute("scoreboard players set .prompt1 global " + step1);
+        player.execute("scoreboard players set .prompt2 global " + step2);
+        player.execute("scoreboard players set .prompt3 global " + step3);
+        player.execute("scoreboard players set .prompt4 global " + step4);
+        player.execute("scoreboard players set .prompt5 global " + step5);
+        player.execute("scoreboard players set .prompt6 global " + step6);
         player.execute("function check_prompt");
     }
 
@@ -59,6 +83,10 @@ namespace craft {
         player.execute("scoreboard players set .prompt_ok global 0");
         player.execute("scoreboard players set .prompt1 global 0");
         player.execute("scoreboard players set .prompt2 global 0");
+        player.execute("scoreboard players set .prompt3 global 0");
+        player.execute("scoreboard players set .prompt4 global 0");
+        player.execute("scoreboard players set .prompt5 global 0");
+        player.execute("scoreboard players set .prompt6 global 0");
     }
 
     function normalize(pattern: string): string {

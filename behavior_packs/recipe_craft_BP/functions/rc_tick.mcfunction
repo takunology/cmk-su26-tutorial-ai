@@ -11,7 +11,10 @@ execute if score .stage global matches 7 if score .timer global matches 60 as @a
 execute if score .stage global matches 7 if score .timer global matches 30 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 真ん中を空けて、かまどの形にしています..."}]}
 execute if score .stage global matches 7 if score .timer global matches 0 as @a at @s run function rc_furnace_done
 
-execute if score .stage global matches 9 if score .timer global matches 100 as @a run tellraw @s {"rawtext":[{"text":"エージェント: まず木のつるはしの作り方を思い出します。"}]}
-execute if score .stage global matches 9 if score .timer global matches 70 as @a run tellraw @s {"rawtext":[{"text":"エージェント: つぎに、丸石を集める手順を確認します。"}]}
-execute if score .stage global matches 9 if score .timer global matches 40 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 最後に、かまどを作って置く場所を決めます。"}]}
+execute if score .stage global matches 9 if score .timer global matches 140 as @a run tellraw @s {"rawtext":[{"text":"エージェント: オークの原木を切ります。"}]}
+execute if score .stage global matches 9 if score .timer global matches 115 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 原木からオークの板材を作ります。"}]}
+execute if score .stage global matches 9 if score .timer global matches 90 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 板材から木の棒を作ります。"}]}
+execute if score .stage global matches 9 if score .timer global matches 65 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 木のつるはしを作ります。"}]}
+execute if score .stage global matches 9 if score .timer global matches 40 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 木のつるはしで丸石をほります。"}]}
+execute if score .stage global matches 9 if score .timer global matches 15 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 丸石を使ってかまどを作ります。"}]}
 execute if score .stage global matches 9 if score .timer global matches 0 as @a at @s run function rc_prompt_done
