@@ -1,5 +1,9 @@
-//% color="#0096FF" weight=200 icon="" block="レシピクラフト"
+//% color="#0096FF" weight=200 icon="" block="AI学習"
 namespace craft {
+
+    //% blockId=tool_blank block=" "
+    //% blockHidden=true
+    export function blankResult(): number { return 0; }
 
     //% blockId=tool_wood_pickaxe block="木のつるはし"
     //% weight=88
@@ -67,9 +71,9 @@ namespace craft {
         return normalize(pattern);
     }
 
-    //% blockId=craft_classify block="このレシピは %pattern として %result である"
+    //% blockId=craft_classify block="クラフト %pattern で %result をつくる"
     //% pattern.shadow=craft_pattern
-    //% result.shadow=tool_wood_pickaxe
+    //% result.shadow=tool_blank
     //% weight=100
     export function classifyAs(pattern: string, result: number): void {
         const ok = matches(normalize(pattern), result) ? 1 : 0;
