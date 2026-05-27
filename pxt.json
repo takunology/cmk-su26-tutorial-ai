@@ -1,5 +1,5 @@
 {
-    "name": "recipe-craft",
+    "name": "cmk-su26-tutorial-ai",
     "version": "0.0.1",
     "description": "Tutorial extension: classify a 3x3 crafting silhouette and report the result back to the world via scoreboard.",
     "dependencies": {
