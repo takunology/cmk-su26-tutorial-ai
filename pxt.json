@@ -3,13 +3,15 @@
     "version": "0.0.1",
     "description": "Tutorial extension: classify a 3x3 crafting silhouette and report the result back to the world via scoreboard.",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "builder": "*"
     },
     "files": [
         "README.md",
         "custom.ts",
         "custom.jres",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "tutorials/pickaxe.md"
     ],
     "testFiles": [],
     "public": true,
