@@ -11,7 +11,9 @@
         "custom.ts",
         "custom.jres",
         "tutorial-info-cache.json",
-        "tutorials/pickaxe.md"
+        "tutorials/wood-pickaxe.md",
+        "tutorials/stone-pickaxe.md",
+        "tutorials/furnace.md"
     ],
     "testFiles": [],
     "public": true,
