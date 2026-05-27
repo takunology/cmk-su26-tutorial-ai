@@ -1,4 +1,4 @@
-execute if score .output1 global matches 0 run title @s actionbar §c違うみたい、もう一度よく見て
+execute if score .output1 global matches 0 run title @s actionbar §e学習できませんでした...（プログラムをチェックしよう！）
 
 execute if score .output1 global matches 1 if score .output2 global matches 1 if score .stage global matches 3 run function rc_learned_wood
 execute if score .output1 global matches 1 if score .output2 global matches 2 run function step2_stone_pickaxe
