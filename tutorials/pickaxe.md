@@ -36,11 +36,7 @@ craft.resetAnswer()
 
 ```template
 player.onChat("go", function () {
-    craft.classifyAs(craft.craftPattern(`
-    . . .
-    . . .
-    . . .
-    `), CraftResult.Pickaxe)
+
 })
 ```
 
