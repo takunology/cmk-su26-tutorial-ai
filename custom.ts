@@ -1,18 +1,18 @@
+enum CraftResult {
+    //% block="木のツルハシ"
+    Pickaxe = 1,
+    //% block="木のツルギ"
+    Sword = 2,
+    //% block="木のオノ"
+    Axe = 3,
+    //% block="木のシャベル"
+    Shovel = 4,
+    //% block="木のクワ"
+    Hoe = 5
+}
+
 //% color="#0096FF" weight=200 icon="" block="レシピクラフト"
 namespace craft {
-
-    export enum Result {
-        //% block="木のツルハシ"
-        Pickaxe = 1,
-        //% block="木のツルギ"
-        Sword = 2,
-        //% block="木のオノ"
-        Axe = 3,
-        //% block="木のシャベル"
-        Shovel = 4,
-        //% block="木のクワ"
-        Hoe = 5
-    }
 
     //% blockId=craft_pattern block="3x3"
     //% imageLiteralColumns=3 imageLiteralRows=3 gridLiteral=1
@@ -24,7 +24,7 @@ namespace craft {
     //% blockId=craft_classify block="このレシピは %pattern として %result である"
     //% pattern.shadow=craft_pattern
     //% weight=100
-    export function classifyAs(pattern: string, result: Result): void {
+    export function classifyAs(pattern: string, result: CraftResult): void {
         const ok = matches(normalize(pattern), result) ? 1 : 0;
         player.execute(`scoreboard players set .output1 global ${ok}`);
         player.execute(`function check_result`);
@@ -52,19 +52,19 @@ namespace craft {
         return out.substr(0, 9);
     }
 
-    function matches(pattern: string, result: Result): boolean {
+    function matches(pattern: string, result: CraftResult): boolean {
         const expected = expectedFor(result);
         return expected.length === 9 && pattern === expected;
     }
 
-    function expectedFor(result: Result): string {
+    function expectedFor(result: CraftResult): string {
         switch (result) {
-            case Result.Pickaxe: return "111" + "010" + "010";
-            case Result.Sword:   return "010" + "010" + "010";
-            case Result.Axe:     return "110" + "110" + "010";
-            case Result.Shovel:  return "010" + "010" + "010";
-            case Result.Hoe:     return "110" + "010" + "010";
-            default:             return "";
+            case CraftResult.Pickaxe: return "111" + "010" + "010";
+            case CraftResult.Sword:   return "010" + "010" + "010";
+            case CraftResult.Axe:     return "110" + "110" + "010";
+            case CraftResult.Shovel:  return "010" + "010" + "010";
+            case CraftResult.Hoe:     return "110" + "010" + "010";
+            default:                  return "";
         }
     }
 }

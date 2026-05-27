@@ -30,7 +30,7 @@ craft.classifyAs(craft.craftPattern(`
 . . .
 . . .
 . . .
-`), craft.Result.Pickaxe)
+`), CraftResult.Pickaxe)
 craft.resetAnswer()
 ```
 
@@ -40,7 +40,7 @@ player.onChat("go", function () {
     . . .
     . . .
     . . .
-    `), craft.Result.Pickaxe)
+    `), CraftResult.Pickaxe)
 })
 ```
 
