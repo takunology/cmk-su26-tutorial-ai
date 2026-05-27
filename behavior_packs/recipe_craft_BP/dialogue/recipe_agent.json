@@ -1,125 +1,125 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20",
   "minecraft:npc_dialogue": {
     "scenes": [
       {
         "scene_tag": "rc_intro",
-        "npc_name": "エージェント",
-        "text": "私も手伝いたいけど、何をすればいいか教えてください",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "私も手伝いたいけど、何をすればいいか教えてください" } ] },
         "buttons": [
           {
-            "name": "まずは見ててね",
+            "name": { "rawtext": [ { "text": "まずは見ててね" } ] },
             "commands": [
-              "/scoreboard players set .stage global 1",
-              "/tellraw @initiator {\"rawtext\":[{\"text\":\"木のつるはしを作って、手に持ってエージェントに見せよう。\"}]}"
+              "scoreboard players set .stage global 1",
+              "tellraw @initiator {\"rawtext\":[{\"text\":\"木のつるはしを作って、手に持ってエージェントに見せよう。\"}]}"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_teach_wood",
-        "npc_name": "エージェント",
-        "text": "わたしにもおしえてください",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "わたしにもおしえてください" } ] },
         "buttons": [
           {
-            "name": "わかった！",
+            "name": { "rawtext": [ { "text": "わかった！" } ] },
             "commands": [
-              "/scoreboard players set .stage global 3",
-              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/wood-pickaxe"
+              "scoreboard players set .stage global 3",
+              "execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/wood-pickaxe"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_learned_wood",
-        "npc_name": "エージェント",
-        "text": "おぼえました！木のつるはしをつくります",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "おぼえました！木のつるはしをつくります" } ] },
         "buttons": [
           {
-            "name": "つくって！",
+            "name": { "rawtext": [ { "text": "つくって！" } ] },
             "commands": [
-              "/function rc_agent_make_wood"
+              "function rc_agent_make_wood"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_next_furnace",
-        "npc_name": "エージェント",
-        "text": "つぎはなにをしますか",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "つぎはなにをしますか" } ] },
         "buttons": [
           {
-            "name": "かまどをつくる",
+            "name": { "rawtext": [ { "text": "かまどをつくる" } ] },
             "commands": [
-              "/scoreboard players set .stage global 5",
-              "/tellraw @initiator {\"rawtext\":[{\"text\":\"丸石でかまどを作って、手に持ってエージェントに見せよう。\"}]}"
+              "scoreboard players set .stage global 5",
+              "tellraw @initiator {\"rawtext\":[{\"text\":\"丸石でかまどを作って、手に持ってエージェントに見せよう。\"}]}"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_teach_furnace",
-        "npc_name": "エージェント",
-        "text": "かまどのつくりかたおしえてください",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "かまどのつくりかたおしえてください" } ] },
         "buttons": [
           {
-            "name": "いいよ！",
+            "name": { "rawtext": [ { "text": "いいよ！" } ] },
             "commands": [
-              "/scoreboard players set .stage global 6",
-              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/furnace"
+              "scoreboard players set .stage global 6",
+              "execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/furnace"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_learned_furnace",
-        "npc_name": "エージェント",
-        "text": "おぼえました！かまどをつくります",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "おぼえました！かまどをつくります" } ] },
         "buttons": [
           {
-            "name": "つくって！",
+            "name": { "rawtext": [ { "text": "つくって！" } ] },
             "commands": [
-              "/function rc_agent_make_furnace"
+              "function rc_agent_make_furnace"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_prompt_ready",
-        "npc_name": "エージェント",
-        "text": "最後に、ここまでの作業をまとめたプロンプトを組んでみましょう",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "最後に、ここまでの作業をまとめたプロンプトを組んでみましょう" } ] },
         "buttons": [
           {
-            "name": "プロンプトを組む",
+            "name": { "rawtext": [ { "text": "プロンプトを組む" } ] },
             "commands": [
-              "/scoreboard players set .stage global 8",
-              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/agent-prompt"
+              "scoreboard players set .stage global 8",
+              "execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/agent-prompt"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_prompt_confirm",
-        "npc_name": "エージェント",
-        "text": "かまどを作るところまで作業しますか？",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "かまどを作るところまで作業しますか？" } ] },
         "buttons": [
           {
-            "name": "はい",
+            "name": { "rawtext": [ { "text": "はい" } ] },
             "commands": [
-              "/function rc_prompt_run_all"
+              "function rc_prompt_run_all"
             ]
           }
         ]
       },
       {
         "scene_tag": "rc_prompt_success",
-        "npc_name": "エージェント",
-        "text": "ただしくプロンプトを組めましたね！",
+        "npc_name": { "rawtext": [ { "text": "エージェント" } ] },
+        "text": { "rawtext": [ { "text": "ただしくプロンプトを組めましたね！" } ] },
         "buttons": [
           {
-            "name": "おしまい",
+            "name": { "rawtext": [ { "text": "おしまい" } ] },
             "commands": [
-              "/scoreboard players set .stage global 10"
+              "scoreboard players set .stage global 10"
             ]
           }
         ]
