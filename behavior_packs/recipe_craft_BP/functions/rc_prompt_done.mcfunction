@@ -1,0 +1,4 @@
+scoreboard players set .stage global 10
+setblock ^ ^ ^2 minecraft:furnace keep
+tellraw @s {"rawtext":[{"text":"エージェント: できました！必要な手順を順番に実行できました。"}]}
+dialogue open @e[type=npc,tag=recipe_agent,c=1] @s rc_prompt_success

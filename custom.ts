@@ -1,17 +1,25 @@
 //% color="#0096FF" weight=200 icon="" block="レシピクラフト"
 namespace craft {
 
-    //% blockId=tool_wood_pickaxe block="木のツルハシ"
+    //% blockId=tool_wood_pickaxe block="木のつるはし"
     //% weight=88
     export function woodPickaxe(): number { return 1; }
 
-    //% blockId=tool_stone_pickaxe block="石のツルハシ"
+    //% blockId=tool_stone_pickaxe block="石のつるはし"
     //% weight=87
     export function stonePickaxe(): number { return 2; }
 
     //% blockId=tool_furnace block="かまど"
     //% weight=86
     export function furnace(): number { return 3; }
+
+    //% blockId=agent_task_wood_pickaxe block="木のつるはしをつくる"
+    //% weight=84
+    export function makeWoodPickaxe(): number { return 1; }
+
+    //% blockId=agent_task_furnace block="かまどをつくる"
+    //% weight=83
+    export function makeFurnace(): number { return 2; }
 
     //% blockId=craft_pattern block="3x3"
     //% imageLiteralColumns=3 imageLiteralRows=3 gridLiteral=1
@@ -31,11 +39,26 @@ namespace craft {
         player.execute("function check_result");
     }
 
+    //% blockId=agent_run_prompt block="プロンプトを実行 %first %second"
+    //% first.shadow=agent_task_wood_pickaxe
+    //% second.shadow=agent_task_furnace
+    //% weight=80
+    export function runPrompt(first: number, second: number): void {
+        const ok = (first == 1 && second == 2) ? 1 : 0;
+        player.execute("scoreboard players set .prompt_ok global " + ok);
+        player.execute("scoreboard players set .prompt1 global " + first);
+        player.execute("scoreboard players set .prompt2 global " + second);
+        player.execute("function check_prompt");
+    }
+
     //% blockId=craft_reset block="答えをリセット"
     //% weight=10
     export function resetAnswer(): void {
         player.execute("scoreboard players set .output1 global 0");
         player.execute("scoreboard players set .output2 global 0");
+        player.execute("scoreboard players set .prompt_ok global 0");
+        player.execute("scoreboard players set .prompt1 global 0");
+        player.execute("scoreboard players set .prompt2 global 0");
     }
 
     function normalize(pattern: string): string {
@@ -65,8 +88,8 @@ namespace craft {
     }
 
     function expectedFor(result: number): string {
-        if (result == 1) return "111" + "010" + "010"; // 木のツルハシ
-        if (result == 2) return "111" + "010" + "010"; // 石のツルハシ (形はツルハシと同じ)
+        if (result == 1) return "111" + "010" + "010"; // 木のつるはし
+        if (result == 2) return "111" + "010" + "010"; // 石のつるはし (形はつるはしと同じ)
         if (result == 3) return "111" + "101" + "111"; // かまど (8マスのドーナツ型)
         return "";
     }

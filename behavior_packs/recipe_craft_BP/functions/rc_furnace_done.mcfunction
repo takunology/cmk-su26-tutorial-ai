@@ -1,0 +1,4 @@
+scoreboard players set .stage global 8
+setblock ^ ^ ^2 minecraft:furnace keep
+tellraw @s {"rawtext":[{"text":"エージェント: できました！かまどを設置しました。"}]}
+dialogue open @e[type=npc,tag=recipe_agent,c=1] @s rc_prompt_ready
