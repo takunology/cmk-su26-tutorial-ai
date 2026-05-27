@@ -10,7 +10,8 @@
           {
             "name": "まずは見ててね",
             "commands": [
-              "/function rc_demo_cut_wood"
+              "/scoreboard players set .stage global 1",
+              "/tellraw @initiator {\"rawtext\":[{\"text\":\"オークの原木を切って、エージェントに見せよう。\"}]}"
             ]
           }
         ]
@@ -18,7 +19,7 @@
       {
         "scene_tag": "rc_teach_cut_wood",
         "npc_name": "エージェント",
-        "text": "木を集めました！つぎは何をすればいいですか？",
+        "text": "オークの原木を集めたんですね！わたしにも木を切る作業を教えてください",
         "buttons": [
           {
             "name": "木を切る作業を教える",

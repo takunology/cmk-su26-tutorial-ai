@@ -1,8 +1,6 @@
 execute if score .timer global matches 1.. run scoreboard players remove .timer global 1
 
-execute if score .stage global matches 1 if score .timer global matches 40 as @a run tellraw @s {"rawtext":[{"text":"エージェント: まずは私がお手本を見せます。"}]}
-execute if score .stage global matches 1 if score .timer global matches 20 as @a run tellraw @s {"rawtext":[{"text":"エージェント: オークの原木を切っています..."}]}
-execute if score .stage global matches 1 if score .timer global matches 0 as @a at @s run function rc_demo_wood_done
+execute if score .stage global matches 1 as @a[hasitem={item=oak_log}] at @s run function rc_player_has_oak_log
 
 execute if score .stage global matches 3 if score .timer global matches 40 as @a run tellraw @s {"rawtext":[{"text":"エージェント: 教わった通りに、オークの原木を切ります。"}]}
 execute if score .stage global matches 3 if score .timer global matches 0 as @a at @s run function rc_cut_wood_done
