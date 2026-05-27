@@ -2,42 +2,43 @@
 ### @hideIteration true
 ### @explicitHints true
 
-# Recipe Craft - Wooden Pickaxe
+# レシピクラフト - 木のツルハシ
 
-## Step 1
+## ステップ 1
 
-Look at the silhouette in the 3x3 grid. Each filled square is a wooden plank, each empty square is air. Drag the ``||craft:pattern||`` block into your code to inspect what the pattern looks like.
-
-#### ~ tutorialhint
-Open the **Recipe Craft** category in the flyout and grab the ``||craft:pattern||`` block. Click cells in the grid to fill or clear them.
-
-## Step 2
-
-Use ``||craft:classify ... as wooden pickaxe||`` to tell the world what you think this recipe makes. The world will print **Correct!** or **Not quite** in the actionbar.
+「クラフト」カテゴリから ``||craft:このレシピは||`` ブロックをコードの中に入れよう。3x3 のマスをクリックして、木のツルハシのレシピになるように木の板を置いてみよう。
 
 #### ~ tutorialhint
-The classify block takes a pattern and a result. Fill the top row and the middle column going down (silhouette ``111 / 010 / 010``), and pick **wooden pickaxe** in the dropdown.
+**クラフト** カテゴリを開いて、``||craft:このレシピは として である||`` ブロックを取り出そう。マスをクリックすると黒くなり、もう一度クリックすると消えます。
 
-## Step 3
+## ステップ 2
 
-Try a wrong answer to see the feedback flip. Use ``||craft:reset answer||`` between attempts so a stale **Correct!** doesn't linger.
+ツルハシは上の段がぜんぶ木の板、まん中の列を上から下まで木の板にすると作れるよ。結果のドロップダウンから **木のツルハシ** を選ぼう。
 
 #### ~ tutorialhint
-Change the result dropdown to **wooden sword** or **wooden axe** and run again. The actionbar should say **Not quite**.
+シルエットは こんな形:
+
+```
+■ ■ ■
+. ■ .
+. ■ .
+```
+
+## ステップ 3
+
+ゲーム画面に戻って、チャットで ``go`` と打ち込んでみよう。正解なら緑色で **正解！** と表示されるよ。
+
+#### ~ tutorialhint
+わざと違う答えを選ぶと **違うみたい** が出ます。間違えたら ``||craft:答えをリセット||`` を使ってもう一度挑戦できます。
 
 ```ghost
-craft.craftPattern(`
-. . .
-. . .
-. . .
-`)
-craft.classifyAs(craft.craftPattern(``), CraftResult.Pickaxe)
+craft.classifyAs(craft.craftPattern(``), craft.Result.Pickaxe)
 craft.resetAnswer()
 ```
 
 ```template
 player.onChat("go", function () {
-    craft.classifyAs(craft.craftPattern(``), CraftResult.Pickaxe)
+    craft.classifyAs(craft.craftPattern(``), craft.Result.Pickaxe)
 })
 ```
 
