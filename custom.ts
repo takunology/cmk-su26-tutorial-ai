@@ -1,18 +1,17 @@
-enum CraftResult {
-    //% block="木のツルハシ"
-    Pickaxe = 1,
-    //% block="木のツルギ"
-    Sword = 2,
-    //% block="木のオノ"
-    Axe = 3,
-    //% block="木のシャベル"
-    Shovel = 4,
-    //% block="木のクワ"
-    Hoe = 5
-}
-
 //% color="#0096FF" weight=200 icon="" block="レシピクラフト"
 namespace craft {
+
+    //% blockId=tool_wood_pickaxe block="木のツルハシ"
+    //% weight=88
+    export function woodPickaxe(): number { return 1; }
+
+    //% blockId=tool_stone_pickaxe block="石のツルハシ"
+    //% weight=87
+    export function stonePickaxe(): number { return 2; }
+
+    //% blockId=tool_furnace block="かまど"
+    //% weight=86
+    export function furnace(): number { return 3; }
 
     //% blockId=craft_pattern block="3x3"
     //% imageLiteralColumns=3 imageLiteralRows=3 gridLiteral=1
@@ -23,10 +22,12 @@ namespace craft {
 
     //% blockId=craft_classify block="このレシピは %pattern として %result である"
     //% pattern.shadow=craft_pattern
+    //% result.shadow=tool_wood_pickaxe
     //% weight=100
-    export function classifyAs(pattern: string, result: CraftResult): void {
+    export function classifyAs(pattern: string, result: number): void {
         const ok = matches(normalize(pattern), result) ? 1 : 0;
         player.execute("scoreboard players set .output1 global " + ok);
+        player.execute("scoreboard players set .output2 global " + result);
         player.execute("function check_result");
     }
 
@@ -34,6 +35,7 @@ namespace craft {
     //% weight=10
     export function resetAnswer(): void {
         player.execute("scoreboard players set .output1 global 0");
+        player.execute("scoreboard players set .output2 global 0");
     }
 
     function normalize(pattern: string): string {
@@ -57,19 +59,15 @@ namespace craft {
         return out;
     }
 
-    function matches(pattern: string, result: CraftResult): boolean {
+    function matches(pattern: string, result: number): boolean {
         const expected = expectedFor(result);
-        return expected.length === 9 && pattern === expected;
+        return expected.length == 9 && pattern == expected;
     }
 
-    function expectedFor(result: CraftResult): string {
-        switch (result) {
-            case CraftResult.Pickaxe: return "111" + "010" + "010";
-            case CraftResult.Sword:   return "010" + "010" + "010";
-            case CraftResult.Axe:     return "110" + "110" + "010";
-            case CraftResult.Shovel:  return "010" + "010" + "010";
-            case CraftResult.Hoe:     return "110" + "010" + "010";
-            default:                  return "";
-        }
+    function expectedFor(result: number): string {
+        if (result == 1) return "111" + "010" + "010"; // 木のツルハシ
+        if (result == 2) return "111" + "010" + "010"; // 石のツルハシ (形はツルハシと同じ)
+        if (result == 3) return "111" + "101" + "111"; // かまど (8マスのドーナツ型)
+        return "";
     }
 }
