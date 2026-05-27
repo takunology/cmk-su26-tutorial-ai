@@ -26,14 +26,14 @@ namespace craft {
     //% weight=100
     export function classifyAs(pattern: string, result: CraftResult): void {
         const ok = matches(normalize(pattern), result) ? 1 : 0;
-        player.execute(`scoreboard players set .output1 global ${ok}`);
-        player.execute(`function check_result`);
+        player.execute("scoreboard players set .output1 global " + ok);
+        player.execute("function check_result");
     }
 
     //% blockId=craft_reset block="答えをリセット"
     //% weight=10
     export function resetAnswer(): void {
-        player.execute(`scoreboard players set .output1 global 0`);
+        player.execute("scoreboard players set .output1 global 0");
     }
 
     function normalize(pattern: string): string {
