@@ -42,5 +42,5 @@ player.onChat("go", function () {
 ```
 
 ```package
-recipe-craft=github:takunology/recipe-craft
+recipe-craft=github:takunology/cmk-su26-tutorial-ai
 ```

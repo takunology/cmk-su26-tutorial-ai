@@ -10,14 +10,14 @@ title/actionbar feedback.
 
 * Open [https://minecraft.makecode.com/](https://minecraft.makecode.com/)
 * **New Project** → gear icon → **Extensions**
-* Paste `https://github.com/takunology/recipe-craft` and import
+* Paste `https://github.com/takunology/cmk-su26-tutorial-ai` and import
 
 ## Use as Tutorial
 
 Set the world's `education.json` `codebuilder.defaulturi` to:
 
 ```
-https://minecraft.makecode.com/#tutorial:github:takunology/recipe-craft/tutorials/pickaxe
+https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/pickaxe
 ```
 
 ## Blocks
