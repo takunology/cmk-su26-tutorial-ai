@@ -8,7 +8,7 @@
 
 ## ステップ 1
 
-形は木のツルハシと同じだよ。結果のスロットを ``||craft:石のツルハシ||`` に差し替えて、ゲーム画面で `run` とチャットしよう。
+形は木のツルハシと同じだよ。``||craft:レシピをこたえる||`` の中の ``||craft:クラフト で をつくる||`` の結果スロットを ``||craft:石のツルハシ||`` に差し替えて、実行ボタンを押そう。
 
 正解なら **石炭が5個もらえる** よ。
 
@@ -21,16 +21,17 @@
 結果ブロックだけ ``||craft:石のツルハシ||`` に交換すればOK。
 
 ```ghost
-craft.classifyAs(craft.craftPattern(`
+craft.onAnswerRecipe(function () {
+    craft.classifyAs(craft.craftPattern(`
 . . .
 . . .
 . . .
 `), craft.stonePickaxe())
-craft.resetAnswer()
+})
 ```
 
 ```template
-player.onChat("run", function () {
+craft.onAnswerRecipe(function () {
 
 })
 ```

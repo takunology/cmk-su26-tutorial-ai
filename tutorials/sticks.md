@@ -8,7 +8,7 @@
 
 ## ステップ 1
 
-``||craft:クラフト で をつくる||`` ブロックを使って、まん中に縦2マスの形を作り、結果に ``||craft:木の棒||`` をはめ込もう。準備ができたら `run` とチャットしてね。
+「AI学習」カテゴリから ``||craft:レシピをこたえる||`` ブロックを取り出して、その中に ``||craft:クラフト で をつくる||`` を入れよう。まん中に縦2マスの形を作り、結果に ``||craft:木の棒||`` をはめ込んだら、実行ボタンを押してね。
 
 #### ~ tutorialhint
 木の棒の形:
@@ -17,16 +17,17 @@
 - 3段目: 空
 
 ```ghost
-craft.classifyAs(craft.craftPattern(`
+craft.onAnswerRecipe(function () {
+    craft.classifyAs(craft.craftPattern(`
 . . .
 . . .
 . . .
 `), craft.sticks())
-craft.resetAnswer()
+})
 ```
 
 ```template
-player.onChat("run", function () {
+craft.onAnswerRecipe(function () {
 
 })
 ```

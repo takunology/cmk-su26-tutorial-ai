@@ -8,22 +8,23 @@
 
 ## ステップ 1
 
-``||craft:クラフト で をつくる||`` ブロックを使って、2x2 のマスを全部塗り、結果に ``||craft:作業台||`` をはめ込もう。準備ができたら `run` とチャットしてね。
+「AI学習」カテゴリから ``||craft:レシピをこたえる||`` ブロックを取り出して、その中に ``||craft:クラフト で をつくる||`` を入れよう。2x2 のマスを全部塗り、結果に ``||craft:作業台||`` をはめ込んだら、実行ボタンを押してね。
 
 #### ~ tutorialhint
 作業台の形:
 - 2x2 の4マス全部を塗る
 
 ```ghost
-craft.classifyAs(craft.craftPattern2x2(`
+craft.onAnswerRecipe(function () {
+    craft.classifyAs(craft.craftPattern2x2(`
 . .
 . .
 `), craft.craftingTable())
-craft.resetAnswer()
+})
 ```
 
 ```template
-player.onChat("run", function () {
+craft.onAnswerRecipe(function () {
 
 })
 ```

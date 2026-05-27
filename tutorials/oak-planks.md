@@ -8,23 +8,24 @@
 
 ## ステップ 1
 
-``||craft:クラフト で をつくる||`` ブロックを使って、3x3 のどこか1マスだけを塗り、結果に ``||craft:オークの板材||`` をはめ込もう。準備ができたら `run` とチャットしてね。
+「AI学習」カテゴリから ``||craft:レシピをこたえる||`` ブロックを取り出して、その中に ``||craft:クラフト で をつくる||`` を入れよう。3x3 のどこか1マスだけを塗り、結果に ``||craft:オークの板材||`` をはめ込んだら、実行ボタンを押してね。
 
 #### ~ tutorialhint
 オークの板材の形:
 - どこか1マスだけを塗る
 
 ```ghost
-craft.classifyAs(craft.craftPattern(`
+craft.onAnswerRecipe(function () {
+    craft.classifyAs(craft.craftPattern(`
 . . .
 . . .
 . . .
 `), craft.oakPlanks())
-craft.resetAnswer()
+})
 ```
 
 ```template
-player.onChat("run", function () {
+craft.onAnswerRecipe(function () {
 
 })
 ```

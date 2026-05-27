@@ -8,7 +8,7 @@
 
 ## ステップ 1
 
-今度は形が変わるよ。8マスのドーナツ型 (まん中だけ空) に塗って、結果のスロットには ``||craft:かまど||`` をはめてね。準備ができたら `run` とチャットしよう。
+形が変わるよ。``||craft:レシピをこたえる||`` の中の ``||craft:クラフト で をつくる||`` で、8マスのドーナツ型 (まん中だけ空) に塗って、結果スロットには ``||craft:かまど||`` をはめてね。準備ができたら実行ボタンを押そう。
 
 正解なら、エージェントが「おぼえました！」と返事をします。
 
@@ -19,16 +19,17 @@
 - 3段目: 3マス全部
 
 ```ghost
-craft.classifyAs(craft.craftPattern(`
+craft.onAnswerRecipe(function () {
+    craft.classifyAs(craft.craftPattern(`
 . . .
 . . .
 . . .
 `), craft.furnace())
-craft.resetAnswer()
+})
 ```
 
 ```template
-player.onChat("run", function () {
+craft.onAnswerRecipe(function () {
 
 })
 ```

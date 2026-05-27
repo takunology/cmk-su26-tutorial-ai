@@ -8,7 +8,7 @@
 
 ## ステップ 1
 
-「AI学習」カテゴリから ``||craft:クラフト で をつくる||`` ブロックを取り出して、コードの中に入れよう。3x3 のマスをつるはしの形に塗って、結果のスロットには ``||craft:木のつるはし||`` をはめ込んでね。準備ができたらゲーム画面で `run` とチャットしよう。
+「AI学習」カテゴリから ``||craft:レシピをこたえる||`` ブロックを取り出して、その中に ``||craft:クラフト で をつくる||`` を入れよう。3x3 のマスをつるはしの形に塗って、結果に ``||craft:木のつるはし||`` をはめ込んだら、実行ボタンを押してね。
 
 正解なら、エージェントが「おぼえました！」と返事をします。
 
@@ -19,16 +19,17 @@
 - 3段目: まん中の1マスだけ
 
 ```ghost
-craft.classifyAs(craft.craftPattern(`
+craft.onAnswerRecipe(function () {
+    craft.classifyAs(craft.craftPattern(`
 . . .
 . . .
 . . .
 `), craft.woodPickaxe())
-craft.resetAnswer()
+})
 ```
 
 ```template
-player.onChat("run", function () {
+craft.onAnswerRecipe(function () {
 
 })
 ```
