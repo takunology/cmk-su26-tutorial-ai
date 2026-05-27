@@ -32,7 +32,7 @@ After adding it to the world, start the guided flow with:
 - `pattern (3x3 grid)` — value block returning a normalized 9-char string of `0`/`1`.
 - `classify <pattern> as <result>` — compares against the expected silhouette for the chosen result and sets `.output1 global` to `1` or `0`, then calls `/function check_result`.
 - `teach agent <task>` — records a non-crafting task such as cutting logs or mining cobblestone and calls `/function check_task`.
-- `run prompt <six tasks>` — checks whether the full agent prompt is composed in the intended order and calls `/function check_prompt`.
+- `run prompt <seven tasks>` — checks whether the full agent prompt is composed in the intended order and calls `/function check_prompt`.
 - `reset answer` — clears the scoreboard back to `0`.
 
 ## World-side contract

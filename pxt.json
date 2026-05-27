@@ -1,6 +1,6 @@
 {
     "name": "cmk-su26-tutorial-ai",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Tutorial extension: teach recipe silhouettes and compose agent task prompts via scoreboard.",
     "dependencies": {
         "core": "*",
@@ -13,6 +13,7 @@
         "tutorial-info-cache.json",
         "tutorials/cut-oak-log.md",
         "tutorials/oak-planks.md",
+        "tutorials/crafting-table.md",
         "tutorials/sticks.md",
         "tutorials/wood-pickaxe.md",
         "tutorials/mine-cobblestone.md",

@@ -70,14 +70,41 @@
         ]
       },
       {
-        "scene_tag": "rc_next_sticks",
+        "scene_tag": "rc_next_crafting_table",
         "npc_name": "エージェント",
         "text": "オークの板材をつくりました！つぎは何をすればいいですか？",
         "buttons": [
           {
-            "name": "木の棒をつくる",
+            "name": "作業台をつくる",
             "commands": [
               "/scoreboard players set .stage global 6",
+              "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/crafting-table"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_learned_crafting_table",
+        "npc_name": "エージェント",
+        "text": "おぼえました！作業台をつくります",
+        "buttons": [
+          {
+            "name": "つくって！",
+            "commands": [
+              "/function rc_agent_make_crafting_table"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "rc_next_sticks",
+        "npc_name": "エージェント",
+        "text": "作業台をつくりました！つぎは何をすればいいですか？",
+        "buttons": [
+          {
+            "name": "木の棒をつくる",
+            "commands": [
+              "/scoreboard players set .stage global 8",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/sticks"
             ]
           }
@@ -104,7 +131,7 @@
           {
             "name": "木のつるはしをつくる",
             "commands": [
-              "/scoreboard players set .stage global 8",
+              "/scoreboard players set .stage global 10",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/wood-pickaxe"
             ]
           }
@@ -131,7 +158,7 @@
           {
             "name": "丸石をほる",
             "commands": [
-              "/scoreboard players set .stage global 10",
+              "/scoreboard players set .stage global 12",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/mine-cobblestone"
             ]
           }
@@ -158,7 +185,7 @@
           {
             "name": "かまどをつくる",
             "commands": [
-              "/scoreboard players set .stage global 12",
+              "/scoreboard players set .stage global 14",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/furnace"
             ]
           }
@@ -185,7 +212,7 @@
           {
             "name": "プロンプトを組む",
             "commands": [
-              "/scoreboard players set .stage global 15",
+              "/scoreboard players set .stage global 17",
               "/execute as @initiator run codebuilder navigate @s true https://minecraft.makecode.com/#tutorial:github:takunology/cmk-su26-tutorial-ai/tutorials/agent-prompt"
             ]
           }
@@ -212,7 +239,7 @@
           {
             "name": "おしまい",
             "commands": [
-              "/scoreboard players set .stage global 17"
+              "/scoreboard players set .stage global 19"
             ]
           }
         ]

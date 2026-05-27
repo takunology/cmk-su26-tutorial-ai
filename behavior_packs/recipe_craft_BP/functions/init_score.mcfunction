@@ -8,6 +8,7 @@ scoreboard players set .prompt3 global 0
 scoreboard players set .prompt4 global 0
 scoreboard players set .prompt5 global 0
 scoreboard players set .prompt6 global 0
+scoreboard players set .prompt7 global 0
 scoreboard players set .stage global 0
 scoreboard players set .timer global 0
 say Recipe Craft: scoreboard ready.

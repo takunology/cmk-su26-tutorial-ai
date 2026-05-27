@@ -1,6 +1,6 @@
 ### @flyoutOnly true
 ### @explicitHints true
-### @next tutorials/sticks
+### @next tutorials/crafting-table
 
 # エージェントに板材の作り方を教えよう
 
