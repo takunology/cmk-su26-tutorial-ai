@@ -29,33 +29,22 @@ namespace craft {
     //% weight=83
     export function craftingTable(): number { return 6; }
 
-    //% blockId=agent_task_cut_oak_log block="オークの原木を切る"
-    //% blockHidden=true
-    export function cutOakLog(): number { return 101; }
-
-    //% blockId=agent_task_make_oak_planks block="オークの板材をつくる"
-    //% blockHidden=true
-    export function makeOakPlanks(): number { return 102; }
-
-    //% blockId=agent_task_make_crafting_table block="作業台をつくる"
-    //% blockHidden=true
-    export function makeCraftingTable(): number { return 103; }
-
-    //% blockId=agent_task_make_sticks block="木の棒をつくる"
-    //% blockHidden=true
-    export function makeSticks(): number { return 104; }
-
-    //% blockId=agent_task_wood_pickaxe block="木のつるはしをつくる"
-    //% blockHidden=true
-    export function makeWoodPickaxe(): number { return 105; }
-
-    //% blockId=agent_task_mine_cobblestone block="丸石をほる"
-    //% blockHidden=true
-    export function mineCobblestone(): number { return 106; }
-
-    //% blockId=agent_task_furnace block="かまどをつくる"
-    //% blockHidden=true
-    export function makeFurnace(): number { return 107; }
+    export enum AgentTask {
+        //% block="オークの原木を切る"
+        CutOakLog = 101,
+        //% block="オークの板材をつくる"
+        MakeOakPlanks = 102,
+        //% block="作業台をつくる"
+        MakeCraftingTable = 103,
+        //% block="木の棒をつくる"
+        MakeSticks = 104,
+        //% block="木のつるはしをつくる"
+        MakeWoodPickaxe = 105,
+        //% block="丸石をほる"
+        MineCobblestone = 106,
+        //% block="かまどをつくる"
+        MakeFurnace = 107,
+    }
 
     //% blockId=craft_pattern_2x2 block="2x2"
     //% imageLiteralColumns=2 imageLiteralRows=2 gridLiteral=1
@@ -117,9 +106,8 @@ namespace craft {
     }
 
     //% blockId=agent_teach_task block="エージェントに %task をおしえる"
-    //% task.shadow=agent_task_cut_oak_log
     //% weight=77
-    export function teachTask(task: number): void {
+    export function teachTask(task: AgentTask): void {
         player.execute("scoreboard players set .output2 global " + task);
     }
 

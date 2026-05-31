@@ -14,7 +14,7 @@
 
 ```ghost
 craft.onTeachAgent(function () {
-    craft.teachTask(craft.cutOakLog())
+    craft.teachTask(craft.AgentTask.CutOakLog)
 })
 ```
 

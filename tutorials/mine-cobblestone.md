@@ -14,7 +14,7 @@
 
 ```ghost
 craft.onTeachAgent(function () {
-    craft.teachTask(craft.mineCobblestone())
+    craft.teachTask(craft.AgentTask.MineCobblestone)
 })
 ```
 
