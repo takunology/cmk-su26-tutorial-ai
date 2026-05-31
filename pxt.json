@@ -1,6 +1,6 @@
 {
     "name": "cmk-su26-tutorial-ai",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "description": "Tutorial extension: teach recipe silhouettes and compose agent task prompts via scoreboard.",
     "dependencies": {
         "core": "*",

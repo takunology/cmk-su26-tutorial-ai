@@ -140,14 +140,8 @@ namespace craft {
     export function promptMakeFurnace(): void { appendPromptStep(107); }
 
     function appendPromptStep(id: number): void {
-        player.execute("scoreboard players add .prompt_idx global 1");
-        player.execute("execute if score .prompt_idx global matches 1 run scoreboard players set .prompt1 global " + id);
-        player.execute("execute if score .prompt_idx global matches 2 run scoreboard players set .prompt2 global " + id);
-        player.execute("execute if score .prompt_idx global matches 3 run scoreboard players set .prompt3 global " + id);
-        player.execute("execute if score .prompt_idx global matches 4 run scoreboard players set .prompt4 global " + id);
-        player.execute("execute if score .prompt_idx global matches 5 run scoreboard players set .prompt5 global " + id);
-        player.execute("execute if score .prompt_idx global matches 6 run scoreboard players set .prompt6 global " + id);
-        player.execute("execute if score .prompt_idx global matches 7 run scoreboard players set .prompt7 global " + id);
+        player.execute("scoreboard players set .prompt_task global " + id);
+        player.execute("function rc_prompt_append");
     }
 
     function normalize(pattern: string): string {

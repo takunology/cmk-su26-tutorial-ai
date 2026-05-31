@@ -3,6 +3,8 @@ scoreboard players set .output1 global 0
 scoreboard players set .output2 global 0
 scoreboard players set .prompt_ok global 0
 scoreboard players set .prompt_idx global 0
+scoreboard players set .prompt_task global 0
+scoreboard players set .prompt_check global 0
 scoreboard players set .prompt1 global 0
 scoreboard players set .prompt2 global 0
 scoreboard players set .prompt3 global 0
